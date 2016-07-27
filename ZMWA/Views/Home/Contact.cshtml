@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+
+<div class="container"  style="padding-top:50px;">
+    <div class="col-md-3">
+        <img src="~/Content/Images/contact.jpg" alt="Image" style="padding-bottom:50px;"><br/>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+
+                <h3 class="panel-title">Feedback</h3>
+            </div>
+            @Html.ActionLink("Leave query", "Create", "Contacts", routeValues: null, htmlAttributes: new { id = "registerLink" })
+        </div>
+        </div>
+    <div class="panel panel-default col-md-7" >
+        <div class="panel-heading">
+
+            <h3 class="panel-title">Contact Address</h3>
+        </div>
+        <div class="col-md-6">
+        <address>
+            <strong>Indore</strong><br/>
+            Zestix Technology & serviceas<br />
+            316,Muley Tower 164,M.G. road<br />
+            Indore-452001<br />
+            <abbr title="Phone">P:</abbr>
+            425.555.0100<br />
+            <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
+            <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+        </address>
+            </div>
+        <div class="col-md-6">
+        <address>
+            <strong>New Jersy</strong><br />
+            Zestix Technology & serviceas<br />
+            316,Muley Tower 164,M.G. road<br />
+            Indore-452001<br />
+            <abbr title="Phone">P:</abbr>
+            425.555.0100<br />
+            <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
+            <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+        </address>
+            </div>
+
+    </div>
+  
+</div>

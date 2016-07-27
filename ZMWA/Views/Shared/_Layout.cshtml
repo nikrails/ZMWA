@@ -1,0 +1,252 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - ZMWA</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css")
+    <script src="@Url.Content("https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/layout.js")" type="text/javascript"></script>
+    
+    
+    <link href="~/Content/layout.css" rel="stylesheet" type="text/css" />
+  
+
+</head>
+<body>
+    <nav class="navbar navbar-inverse zestix navbar-fixed-top">
+        <div class="container-fluid" style="width:100%">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("ZMWA", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav large-view navbar-right">
+                    <li class="dropdown yamm-fw">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">About Us</a>
+                        <ul class="dropdown-menu">
+                            <li class="row ">
+
+                                <!--  About Us start -->
+                                <div class="col-sm-4 aboutUs_bannerContainer" s>
+                                    <img class="center-block" src="~/Content/Images/z.jpg" alt="About Us Menu banner" id="dropdown-submenu" />
+
+                                </div>
+
+
+                                <!-- About us -->
+                                <div class="col-sm-6 aboutUs_contentContainer">
+                                    <h3 class="aboutus_subMenuHeading">About Us</h3>
+                                    <hr />
+                                    <p class="aboutus_subMenuDescription">
+                                        Zestix technology has been delivering technology solutions for close to two decades.
+                                        Established in 1996, we have grown into a mature mid-sized IT solutions provider
+                                        delivering innovative technology solutions and services across multiple domains.
+                                    </p>
+
+                                    <!-- Read More -->
+                                    <div>
+                                        <a href="#" class="btn btn-default about_usreadMore">Read More</a>
+                                    </div>
+
+                                </div>
+
+
+
+                            </li>  <!-- Dropdown List - (Ends) -->
+
+                        </ul> <!-- End of Sub Menu List -->
+
+                    </li>
+
+                    <!--Services dropdown starts-->
+
+                    <li class="dropdown yamm-fw ">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services</a>
+                        <ul class="dropdown-menu">
+
+                            <!-- Dropdown List - (Starts) -->
+                            <li class="row">
+
+                                <!-- Application services Banner -->
+                                <div class="col-sm-4 servicesContainer">
+                                    <h3 class="text-center">Application services</h3><br />
+                                    <p>Application Development</p>
+                                    <hr />
+                                    <p>Application Maintainance</p>
+                                    <hr />
+                                    <p>Application Integration</p>
+
+                                </div>
+
+
+                                <div class="col-sm-4 servicesContainer">
+                                    <h3 class="text-center">Testing</h3><br />
+                                    <img class="img-responsive center-block" src="~/Content/Images/testing.jpg" alt="About Us Menu banner" id="dropdown-submenu" />
+                                    <p>Focusing on the latest cutting-edge technology trends and testing needs, we have established strong expertise in functional testing, while strengthening our competence in technology testing areas including Mobility, Automation, Performance and Big Data Testing</p>
+                                    <!-- Read More -->
+                                    <div>
+                                        <a href="#" class="btn btn-default about_usreadMore">Read More</a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 servicesContainer">
+                                    <h3 class="text-center">Agile development</h3><br />
+                                    <img class="img-responsive center-block" src="~/Content/Images/Agile devalopment.jpg" alt="About Us Menu banner" id="dropdown-submenu" />
+                                    <p>Focusing on the latest cutting-edge technology trends and testing needs, we have established strong expertise in functional testing, while strengthening our competence in technology testing areas including Mobility, Automation, Performance and Big Data Testing</p>
+
+                                    <div>
+                                        <a href="#" class="btn btn-default about_usreadMore">Read More</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!--Industries dropdown starts-->
+
+                    <li class="dropdown yamm-fw">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Industries</a>
+                        <ul class="dropdown-menu">
+
+                            <!-- Dropdown List - (Starts) -->
+                            <li class="row">
+
+                                <!-- Industries Banner -->
+                                <div class="col-sm-3 servicesContainer">
+                                    <h3 class="text-center">Banking &amp Financial services</h3><br />
+                                    <img class="img-responsive center-block" src="~/Content/Images/Banking&Financial.jpg" alt="About Us Menu banner" id="dropdown-submenu" />
+                                    <p>Application Integration</p>
+
+                                </div>
+
+
+                                <div class="col-sm-3 servicesContainer">
+                                    <h3 class="text-center">Insurance</h3><br />
+                                    <img class="img-responsive center-block" src="~/Content/Images/Insurance.jpg" alt="About Us Menu banner" id="dropdown-submenu" />
+                                    <p>Focusing on the latest cutting-edge technology trends and testing needs, we have established strong expertise in functional testing, while strengthening our competence in technology testing areas including Mobility, Automation, Performance and Big Data Testing</p>
+                                    <!-- Read More -->
+                                    <div>
+                                        <a href="#" class="btn btn-default about_usreadMore">Read More</a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 servicesContainer">
+                                    <h3 class="text-center">Health care</h3><br />
+                                    <img class="img-responsive center-block" src="~/Content/Images/health-care.jpg" alt="About Us Menu banner" id="dropdown-submenu" />
+                                    <p>Focusing on the latest cutting-edge technology trends and testing needs, we have established strong expertise in functional testing, while strengthening our competence in technology testing areas including Mobility, Automation, Performance and Big Data Testing</p>
+
+                                    <div>
+                                        <a href="#" class="btn btn-default about_usreadMore">Read More</a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 servicesContainer">
+                                    <h3 class="text-center">travel &amp logistics</h3><br />
+                                    <img class="img-responsive center-block" src="~/Content/Images/travel&logistics.jpg" alt="About Us Menu banner" id="dropdown-submenu" />
+                                    <p>Focusing on the latest cutting-edge technology trends and testing needs, we have established strong expertise in functional testing, while strengthening our competence in technology testing areas including Mobility, Automation, Performance and Big Data Testing</p>
+
+                                    <div>
+                                        <a href="#" class="btn btn-default about_usreadMore">Read More</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown yamm-fw">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Careers</a>
+                        <ul class="dropdown-menu">
+                            <li class="row ">
+
+                                <!--  About Us start -->
+                                <div class="col-sm-4 aboutUs_bannerContainer">
+                                    <img class="center-block" src="~/Content/Images/career.jpg" alt="About Us Menu banner" id="dropdown-submenu" />
+
+                                </div>
+
+
+                                <!-- About us -->
+                                <div class="col-sm-6 aboutUs_contentContainer">
+                                    <h3 class="aboutus_subMenuHeading">Job opportunity</h3>
+                                    <hr />
+                                    <p class="aboutus_subMenuDescription">
+                                        At Zestix technology &amp;Services we are hiring!Evplore our job openings
+                                    </p>
+
+                                    <!-- Read More -->
+                                    <div class="btn btn-default">
+                                        @Html.ActionLink("Read More", "Job", "Home")
+
+                                    </div>
+
+                                </div>
+
+
+
+                            </li>  <!-- Dropdown List - (Ends) -->
+
+                        </ul> <!-- End of Sub Menu List -->
+
+                    </li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+
+                <!-- Mobile Menus -->
+
+                <ul class="nav navbar-nav mobileMenus">
+                    <!-- Starts:    About Us -->
+                    <li class="">
+                        @Html.ActionLink("AboutUs", "About", "Home")
+                    </li>
+                    <!-- Ends:    About Us -->
+                    <!-- Starts:    Industries -->
+                    <li class="">
+                        <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Industries <b class="plus_minus_icon fa fa-plus"></b></a>
+                        <ul class="dropdown-menu multi-level animated fadeIn" style="background-color:aliceblue">
+                            <li><a href="/industries/banking-and-finance-services">BANKING &AMP; FINANCIAL SERVICES</a></li>
+                            <li><a href="/industries/insurance">INSURANCE</a></li>
+                            <li><a href="/industries/healthcare">HEALTHCARE</a></li>
+                            <li><a href="/industries/travel-and-logistics">TRAVEL &amp; LOGISTICS</a></li>
+                        </ul>
+                    </li>
+                    <!-- Ends:    Industries -->
+                    <!-- Starts:    Services -->
+                    <li class="">
+                        <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Services <b class="plus_minus_icon fa fa-plus"></b></a>
+                        <ul class="dropdown-menu multi-level animated fadeIn" style="background-color:aliceblue">
+                            <li><a href="/services/application-services">APPLICATION SERVICES</a></li>
+                            <li><a href="/services/application-services/application-development">APPLICATION DEVELOPMENT</a></li>
+                            <li><a href="/services/application-services/application-maintenance">APPLICATION MAINTENANCE</a></li>
+                            <li><a href="/services/application-services/application-integration">Application Integration</a></li>
+                            <li><a href="/services/testing">TESTING</a></li>
+                            <li><a href="/services/agile-development">AGILE Development</a></li>
+                        </ul>
+                    </li>
+                    <!-- Ends:    Services -->
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+                <!-- End of Mobile Menus -->
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid body-content" style="padding:0; margin:0" >
+        @RenderBody()
+        <hr />
+        <footer class="navbar-fixed-bottom">
+            <p> <span class="glyphicon glyphicon-copyright-mark"></span>All rights are reserved to Zestix technologies</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
