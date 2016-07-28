@@ -36,20 +36,14 @@
             <td>Indore</td>
         </tr>
     </table>
-    <div class="row">
-        <div class="col-md-3">
-            <img src="~/Content/Images/submit_resume_button.png" class="img-responsive" alt="image" />
-        </div>
-        <div class="col-md-6">
+    <div>
+            <img src="~/Content/Images/submit_resume_button.png" class="img-responsive col-md-1 col-md-offset-3" alt="image" style="width:50PX;height:50PX;" />
             <h3>Post your resume here</h3>
-            <p>
+            <p class="col-md-6">
                 We are always looking for good candidates to join our team! We strongly encourage you to submit your resume to our resume database for future positions. We will contact you if there are any suitable openings matching your skills and career aspirations
-            </p>
-            <div class="btn btn-default">
-                @Html.ActionLink("Read More", "Job", "Home")
+                @Html.ActionLink("Read More", "Create", "PostResumes", routeValues: null, htmlAttributes: new { @class = "btn btn-default" })
 
-            </div>
-        </div>
+                </p>
     </div>
 
 </body>

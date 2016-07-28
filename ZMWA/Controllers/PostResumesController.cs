@@ -10,107 +10,107 @@ using ZMWA.Models;
 
 namespace ZMWA.Controllers
 {
-    public class ContactsController : Controller
+    public class PostResumesController : Controller
     {
         private ContactDBContext db = new ContactDBContext();
 
-        // GET: Contacts
+        // GET: PostResumes
         public ActionResult Index()
         {
-            return View(db.Contacts.ToList());
+            return View(db.PostResumes.ToList());
         }
 
-        // GET: Contacts/Details/5
+        // GET: PostResumes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Contact contact = db.Contacts.Find(id);
-            if (contact == null)
+            PostResume postResume = db.PostResumes.Find(id);
+            if (postResume == null)
             {
                 return HttpNotFound();
             }
-            return View(contact);
+            return View(postResume);
         }
 
-        // GET: Contacts/Create
+        // GET: PostResumes/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Contacts/Create
+        // POST: PostResumes/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Email,Phone,Message")] Contact contact)
+        public ActionResult Create([Bind(Include = "ID,Name,Dob,PhoneNumber,Country,State,City,PinCode,LastEmployer,Experience,Source")] PostResume postResume)
         {
             if (ModelState.IsValid)
             {
-                db.Contacts.Add(contact);
+                db.PostResumes.Add(postResume);
                 db.SaveChanges();
-                return RedirectToAction("Index","Home");
+                return RedirectToAction("Index");
             }
 
-            return View(contact);
+            return View(postResume);
         }
 
-        // GET: Contacts/Edit/5
+        // GET: PostResumes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Contact contact = db.Contacts.Find(id);
-            if (contact == null)
+            PostResume postResume = db.PostResumes.Find(id);
+            if (postResume == null)
             {
                 return HttpNotFound();
             }
-            return View(contact);
+            return View(postResume);
         }
 
-        // POST: Contacts/Edit/5
+        // POST: PostResumes/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,Email,Phone,Message")] Contact contact)
+        public ActionResult Edit([Bind(Include = "ID,Name,Dob,PhoneNumber,Country,State,City,PinCode,LastEmployer,Experience,Source")] PostResume postResume)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(contact).State = EntityState.Modified;
+                db.Entry(postResume).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(contact);
+            return View(postResume);
         }
 
-        // GET: Contacts/Delete/5
+        // GET: PostResumes/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Contact contact = db.Contacts.Find(id);
-            if (contact == null)
+            PostResume postResume = db.PostResumes.Find(id);
+            if (postResume == null)
             {
                 return HttpNotFound();
             }
-            return View(contact);
+            return View(postResume);
         }
 
-        // POST: Contacts/Delete/5
+        // POST: PostResumes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Contact contact = db.Contacts.Find(id);
-            db.Contacts.Remove(contact);
+            PostResume postResume = db.PostResumes.Find(id);
+            db.PostResumes.Remove(postResume);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

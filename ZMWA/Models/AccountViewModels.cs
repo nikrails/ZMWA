@@ -113,4 +113,5 @@ namespace ZMWA.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
     }
+
 }

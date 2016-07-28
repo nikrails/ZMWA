@@ -26,5 +26,6 @@ namespace ZMWA.Models
     public class ContactDBContext : DbContext
     {
         public DbSet<Contact> Contacts { get; set; }
+        public DbSet<PostResume> PostResumes { get; set; }
     }
 }

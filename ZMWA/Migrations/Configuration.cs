@@ -9,7 +9,8 @@ namespace ZMWA.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = false;
             ContextKey = "ZMWA.Models.ContactDBContext";
         }
 
