@@ -9,9 +9,7 @@ namespace ZMWA.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = false;
-            ContextKey = "ZMWA.Models.ContactDBContext";
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(ZMWA.Models.ContactDBContext context)

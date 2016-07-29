@@ -22,19 +22,23 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Dob, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Dob, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Dob, "", new { @class = "text-danger" })
-                </div>
-            </div>
+            
 
             <div class="form-group">
                 @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Dob, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+
+                    @Html.EditorFor(model => model.Dob, new { htmlAttributes = new { @class = "form-control datecontrol" } })
+                    @Html.ValidationMessageFor(model => model.Dob, "", new { @class = "text-danger" })
                 </div>
             </div>
 
@@ -99,7 +103,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10" style="align-items:center">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-default" /> 
             </div>
         </div>
     </div>
@@ -108,3 +112,11 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+<script type="text/javascript">
+    $(function () { // will trigger when the document is ready
+       $('.datepicker').datepicker(); //Initialise any date pickers
+    });
+</script>
+}
