@@ -27,11 +27,14 @@ namespace ZMWA.Models
         public int Mobile { get; set; }
         public string Message { get; set; }
 
+      
+
     }
 
     public class ContactDBContext : DbContext
     {
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<PostResume> PostResumes { get; set; }
+        
     }
 }

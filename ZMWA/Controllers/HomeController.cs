@@ -30,5 +30,22 @@ namespace ZMWA.Controllers
         {
             return View();
         }
+
+        public ActionResult AgileDevelopment()
+        {
+            return View();
+        }
+        public ActionResult MobileDevelopment()
+        {
+            return View();
+        }
+        public ActionResult ApplicationDevelopment()
+        {
+            return View();
+        }
+        public ActionResult Testing()
+        {
+            return View();
+        }
     }
 }

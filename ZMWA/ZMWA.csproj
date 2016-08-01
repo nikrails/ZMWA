@@ -236,9 +236,9 @@
     <Content Include="Content\Images\Android.jpg" />
     <Content Include="Content\Images\Banking&amp;Financial.jpg" />
     <Content Include="Content\Images\career.jpg" />
-    <Content Include="Content\Images\carousel.jpg" />
-    <Content Include="Content\Images\carousel1.jpg" />
-    <Content Include="Content\Images\carousel2.jpg" />
+    <Content Include="Content\Images\Employees.jpg" />
+    <Content Include="Content\Images\CheckStatistics.jpg" />
+    <Content Include="Content\Images\ConferenceRoom.jpg" />
     <Content Include="Content\Images\contact-us.jpg" />
     <Content Include="Content\Images\contact.jpg" />
     <Content Include="Content\Images\health-care.jpg" />
@@ -442,6 +442,8 @@
     <Content Include="Views\Contacts\Edit.cshtml" />
     <Content Include="Views\Contacts\Index.cshtml" />
     <Content Include="Views\Home\Job.cshtml" />
+    <Content Include="Views\Home\ApplicationDevelopment.cshtml" />
+    <Content Include="Views\Home\AgileDevelopment.cshtml" />
     <None Include="Views\Home\Index.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -486,6 +488,8 @@
     <Content Include="Views\PostResumes\Details.cshtml" />
     <Content Include="Views\PostResumes\Edit.cshtml" />
     <Content Include="Views\PostResumes\Index.cshtml" />
+    <Content Include="Views\Home\Testing.cshtml" />
+    <Content Include="Views\Home\MobileDevelopment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
