@@ -211,10 +211,21 @@
     <Compile Include="Migrations\201607291149237_init.Designer.cs">
       <DependentUpon>201607291149237_init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608081054053_Files.cs" />
+    <Compile Include="Migrations\201608081054053_Files.Designer.cs">
+      <DependentUpon>201608081054053_Files.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608081143350_FilePaths.cs" />
+    <Compile Include="Migrations\201608081143350_FilePaths.Designer.cs">
+      <DependentUpon>201608081143350_FilePaths.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\FilePath.cs" />
+    <Compile Include="Models\FileType.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ImageSource.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PostResume.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -232,24 +243,26 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Content\Images\Agile devalopment.jpg" />
+    <Content Include="Content\Images\AgileDevelopment.jpg" />
     <Content Include="Content\Images\Android.jpg" />
-    <Content Include="Content\Images\Banking&amp;Financial.jpg" />
-    <Content Include="Content\Images\career.jpg" />
-    <Content Include="Content\Images\Employees.jpg" />
+    <Content Include="Content\Images\ApplicationDevelopment.jpg" />
+    <Content Include="Content\Images\BankingFinancial.jpg" />
+    <Content Include="Content\Images\Career.jpg" />
     <Content Include="Content\Images\CheckStatistics.jpg" />
     <Content Include="Content\Images\ConferenceRoom.jpg" />
-    <Content Include="Content\Images\contact-us.jpg" />
+    <Content Include="Content\Images\Employees.jpg" />
+    <Content Include="Content\Images\ContactUs.jpg" />
     <Content Include="Content\Images\contact.jpg" />
-    <Content Include="Content\Images\health-care.jpg" />
+    <Content Include="Content\Images\HealthCare.jpg" />
     <Content Include="Content\Images\Insurance.jpg" />
-    <Content Include="Content\Images\ios.png" />
-    <Content Include="Content\Images\microsoft.png" />
-    <Content Include="Content\Images\submit_resume_button.png" />
-    <Content Include="Content\Images\testing.jpg" />
-    <Content Include="Content\Images\travel&amp;logistics.jpg" />
-    <Content Include="Content\Images\windows.png" />
-    <Content Include="Content\Images\z.jpg" />
+    <Content Include="Content\Images\Ios.png" />
+    <Content Include="Content\Images\Microsoft.png" />
+    <Content Include="Content\Images\MobileDevelopment.jpg" />
+    <Content Include="Content\Images\SubmitResume.png" />
+    <Content Include="Content\Images\Testing.jpg" />
+    <Content Include="Content\Images\TravelLogistics.jpg" />
+    <Content Include="Content\Images\Windows.png" />
+    <Content Include="Content\Images\Z.jpg" />
     <Content Include="Content\layout.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -444,6 +457,9 @@
     <Content Include="Views\Home\Job.cshtml" />
     <Content Include="Views\Home\ApplicationDevelopment.cshtml" />
     <Content Include="Views\Home\AgileDevelopment.cshtml" />
+    <Content Include="Views\Home\BankingFinancial.cshtml" />
+    <Content Include="Views\Home\HealthCare.cshtml" />
+    <Content Include="Views\Home\IndexSmartPhone.cshtml" />
     <None Include="Views\Home\Index.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -490,9 +506,12 @@
     <Content Include="Views\PostResumes\Index.cshtml" />
     <Content Include="Views\Home\Testing.cshtml" />
     <Content Include="Views\Home\MobileDevelopment.cshtml" />
+    <Content Include="Views\Home\Insurance.cshtml" />
+    <Content Include="Views\Home\TravelLogistics.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -505,6 +524,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201607291149237_init.resx">
       <DependentUpon>201607291149237_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608081054053_Files.resx">
+      <DependentUpon>201608081054053_Files.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608081143350_FilePaths.resx">
+      <DependentUpon>201608081143350_FilePaths.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

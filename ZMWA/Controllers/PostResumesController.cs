@@ -28,7 +28,7 @@ namespace ZMWA.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PostResume postResume = db.PostResumes.Find(id);
+            PostResume postResume = db.PostResumes.Include(i => i.FilePaths).SingleOrDefault(i => i.ID == id);
             if (postResume == null)
             {
                 return HttpNotFound();
@@ -47,10 +47,23 @@ namespace ZMWA.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Dob,PhoneNumber,Country,State,City,PinCode,LastEmployer,Experience,Source")] PostResume postResume)
+        public ActionResult Create([Bind(Include = "ID,Name,Dob,PhoneNumber,Country,State,City,PinCode,LastEmployer,Experience,Source")] PostResume postResume, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
+
+                if (upload != null && upload.ContentLength > 0)
+                {
+                    var photo = new FilePath
+                    {
+                        FileName = Guid.NewGuid().ToString() + System.IO.Path.GetExtension(upload.FileName),
+                        FileType = FileType.Photo
+                    };
+                    postResume.FilePaths = new List<FilePath>();
+                    postResume.FilePaths.Add(photo);
+                    upload.SaveAs(Path.Combine(Server.MapPath("~/Images"), photo.FileName));
+                }
+
                 db.PostResumes.Add(postResume);
                 db.SaveChanges();
                 return RedirectToAction("Index");
