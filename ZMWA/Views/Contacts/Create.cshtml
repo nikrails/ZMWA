@@ -1,4 +1,6 @@
-﻿@model ZMWA.Models.Contact
+﻿@using CaptchaMvc.HtmlHelpers
+@using CaptchaMvc;
+@model ZMWA.Models.Contact
 
 @{
     ViewBag.Title = "Create";
@@ -7,7 +9,7 @@
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal align-center">
         <h4 class="text-center">Contact</h4>
         <hr />
@@ -15,7 +17,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @id="name" } })
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @id = "name" } })
                 @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -39,11 +41,14 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Message, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Message, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.Message, new { htmlAttributes = new { @class = "form-control", @rows = "20", @cols = "50" } })
                 @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
             </div>
         </div>
-
+        <div class="col-md-3 col-md-offset-2">
+            @Html.Captcha(4)<br />
+        <p class="Error">  @ViewBag.ErrMessage </p>
+        </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Submit" class="btn btn-default" onclick="@("window.location.href='" + @Url.Action("Index", "Home") + "'");" />

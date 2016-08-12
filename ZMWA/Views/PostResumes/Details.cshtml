@@ -10,6 +10,15 @@
     <h4>PostResume</h4>
     <hr />
     <dl class="dl-horizontal">
+        @if (Model.Files.Any(f => f.FileType == FileType.Avatar))
+        {
+            <dt>
+                File
+            </dt>
+            <dd>
+                <img src="~/File?id=@Model.Files.First(f => f.FileType == FileType.Avatar).FileId" alt="avatar" />
+            </dd>
+        }
         <dt>
             @Html.DisplayNameFor(model => model.Name)
         </dt>
@@ -89,14 +98,6 @@
         <dd>
             @Html.DisplayFor(model => model.Source)
         </dd>
-      
-            <dt>
-                Photo
-            </dt>
-            <dd>
-                <img src="/Images/System.Data.Entity.DynamicProxies.FilePath_EB579B86026F81ABDEAE7F56AC5094383B3B0706E198E94E5D758B6772852F10).FileName" alt=""> 
-            </dd>
-        
 
     </dl>
 </div>

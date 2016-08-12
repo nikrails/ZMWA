@@ -1,9 +1,11 @@
-﻿using System;
+﻿using CaptchaMvc.HtmlHelpers;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using ZMWA.Models;
@@ -50,11 +52,36 @@ namespace ZMWA.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Contacts.Add(contact);
-                db.SaveChanges();
-                return RedirectToAction("Index","Home");
-            }
 
+                //var body = "<p>Message:</p><p>Thank you.</p>";
+                //var message = new MailMessage();
+                //message.From = new MailAddress("nikhil.kumrawat@zestixtech.com");
+                //message.To.Add(new MailAddress("nikhil.kumrawat@zestixtech.com")); //replace with valid value
+                //message.Subject = "Your email subject";
+                //message.Body = string.Format(body);
+                //message.IsBodyHtml = true;
+
+                //using (var smtp = new SmtpClient())
+                //{
+                //    var credential = new NetworkCredential
+                //    {
+                //        UserName = "nikhil.kumrawat@zestixtech.com",  // replace with valid value
+                //        Password = "Password!"  // replace with valid value
+                //    };
+                //    smtp.Credentials = credential;
+                //    smtp.UseDefaultCredentials = false;
+                //    smtp.Host = "smtp.zestixtech.com";
+                //    smtp.Port = 25;
+                //    smtp.EnableSsl = false;
+                //  smtp.Send(message);
+                if (this.IsCaptchaValid("Captcha is not valid"))
+                {
+                    db.Contacts.Add(contact);
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "Home");
+                }
+                ViewBag.ErrMessage = "Error:Captcha is not valid";
+            }
             return View(contact);
         }
 

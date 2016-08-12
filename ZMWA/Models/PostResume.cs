@@ -13,7 +13,12 @@ namespace ZMWA.Models
 
         [Required]
         public string Name { get; set; }
-        
+
+         [Display(Name = "Email address")]
+        [Required(ErrorMessage = "The email address is required")]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+        [RegularExpression("^[a-zA-Z0-9_\\.-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", ErrorMessage = "E-mail is not valid")]
+        public string Email { get; set; }
         [Required]
         [DataType(DataType.Date)]
         public DateTime Dob { get; set; }
@@ -44,9 +49,9 @@ namespace ZMWA.Models
 
         public string Source { get; set; }
 
-        public virtual ICollection<FilePath> FilePaths { get; set; }
-
-
+        
+        [FileExtensions(Extensions = "txt,doc,docx,pdf", ErrorMessage = "Please upload valid format")]
+        public virtual ICollection<File> Files { get; set; }
 
     }
 }

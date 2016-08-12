@@ -25,6 +25,7 @@ namespace ZMWA.Models
         [DataType(DataType.PhoneNumber)]
         [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid Phone number")]
         public int Mobile { get; set; }
+
         public string Message { get; set; }
 
       
@@ -36,7 +37,8 @@ namespace ZMWA.Models
     {
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<PostResume> PostResumes { get; set; }
-        public DbSet<FilePath> FilePaths { get; set; }
+        public DbSet<File> Files { get; set; }
+        public DbSet<Menu> Menus { get; set; }
 
     }
 }

@@ -6,13 +6,14 @@ using System.Web;
 
 namespace ZMWA.Models
 {
-    public class FilePath
+    public class File
     {
-        public int FilePathId { get; set; }
+        public int FileId { get; set; }
         [StringLength(255)]
         public string FileName { get; set; }
-
-        [FileExtensions(Extensions = "txt,doc,docx,pdf", ErrorMessage = "Please upload valid format")]
+        [StringLength(100)]
+        public string ContentType { get; set; }
+        public byte[] Content { get; set; }
         public FileType FileType { get; set; }
         public int PostResumeID { get; set; }
         public virtual PostResume PostResume { get; set; }

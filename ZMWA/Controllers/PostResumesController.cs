@@ -1,10 +1,13 @@
-﻿using System;
+﻿using CaptchaMvc.HtmlHelpers;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Mail;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using ZMWA.Models;
@@ -28,7 +31,7 @@ namespace ZMWA.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PostResume postResume = db.PostResumes.Include(i => i.FilePaths).SingleOrDefault(i => i.ID == id);
+            PostResume postResume = db.PostResumes.Include(s => s.Files).SingleOrDefault(s => s.ID == id);
             if (postResume == null)
             {
                 return HttpNotFound();
@@ -47,30 +50,41 @@ namespace ZMWA.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Dob,PhoneNumber,Country,State,City,PinCode,LastEmployer,Experience,Source")] PostResume postResume, HttpPostedFileBase upload)
-        {
+        public ActionResult Create([Bind(Include = "ID,Name,Dob,Email,PhoneNumber,Country,State,City,PinCode,LastEmployer,Experience,Source")] PostResume postResume, HttpPostedFileBase upload)
+        { /*public async Task<ActionResult>*/
             if (ModelState.IsValid)
             {
 
                 if (upload != null && upload.ContentLength > 0)
                 {
-                    var photo = new FilePath
+                    var avatar = new Models.File
                     {
-                        FileName = Guid.NewGuid().ToString() + System.IO.Path.GetExtension(upload.FileName),
-                        FileType = FileType.Photo
+                        FileName = System.IO.Path.GetFileName(upload.FileName),
+                        FileType = FileType.Avatar,
+                        ContentType = upload.ContentType
                     };
-                    postResume.FilePaths = new List<FilePath>();
-                    postResume.FilePaths.Add(photo);
-                    upload.SaveAs(Path.Combine(Server.MapPath("~/Images"), photo.FileName));
+                    using (var reader = new System.IO.BinaryReader(upload.InputStream))
+                    {
+                        avatar.Content = reader.ReadBytes(upload.ContentLength);
+                    }
+                    postResume.Files = new List<Models.File> { avatar };
                 }
 
-                db.PostResumes.Add(postResume);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                if (this.IsCaptchaValid("Captcha is not valid"))
+                    {
+                        db.PostResumes.Add(postResume);
+                        db.SaveChanges();
+                        return RedirectToAction("Index");
+                    }
+                ViewBag.ErrMessage = "Error:Invalid captcha";
+                    return View(postResume);
 
+            }
             return View(postResume);
+           
         }
+        
+
 
         // GET: PostResumes/Edit/5
         public ActionResult Edit(int? id)
@@ -92,7 +106,7 @@ namespace ZMWA.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,Dob,PhoneNumber,Country,State,City,PinCode,LastEmployer,Experience,Source")] PostResume postResume)
+        public ActionResult Edit([Bind(Include = "ID,Name,Dob,Email,PhoneNumber,Country,State,City,PinCode,LastEmployer,Experience,Source")] PostResume postResume)
         {
             if (ModelState.IsValid)
             {

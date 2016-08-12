@@ -5,10 +5,8 @@ using System.Web;
 
 namespace ZMWA.Models
 {
-    public enum FileType
+    public class Menu
     {
-        Avatar = 1, Photo
-
-
+        public int ID { get; set; }
     }
 }
